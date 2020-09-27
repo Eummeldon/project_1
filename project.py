@@ -56,7 +56,7 @@ while True:
         print("Wrong Username or password! Try it again!")
         continue
 
-#print("Přihlašovací jméno:", uzivatel_username,"\nPřihlašovací heslo:", uzivatel_pw)
+
 
 zvoleni_textu = input("We have 3 texts to be analyzed.\nEnter a number btw. 1 and 3 to select: ")
 print(oddelovac)
