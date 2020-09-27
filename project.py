@@ -102,11 +102,13 @@ if zvoleni_textu == "1":
     for slovo in vycistena_slova:
         delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
 
-    for index, _ in enumerate(range(len(delka_slova), 0, -1), 1):
-        for item in delka_slova:
+    spravne_poradi = sorted(delka_slova)
+
+    for item, _ in enumerate(range(len(spravne_poradi), 0, -1), 1):
+        for item in spravne_poradi:
             hodnota = "*" * delka_slova[item]
             print(f"{item}{hodnota}{delka_slova[item]}")
-            delka_slova.pop(item)
+            spravne_poradi.remove(item)
             break
     print(oddelovac)
 
@@ -151,11 +153,13 @@ elif zvoleni_textu == "2":
     for slovo in vycistena_slova:
         delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
 
-    for index, _ in enumerate(range(len(delka_slova), 0, -1), 1):
-        for item in delka_slova:
+    spravne_poradi = sorted(delka_slova)
+
+    for item, _ in enumerate(range(len(spravne_poradi), 0, -1), 1):
+        for item in spravne_poradi:
             hodnota = "*" * delka_slova[item]
             print(f"{item}{hodnota}{delka_slova[item]}")
-            delka_slova.pop(item)
+            spravne_poradi.remove(item)
             break
     print(oddelovac)
 
@@ -200,10 +204,12 @@ elif zvoleni_textu == "3":
     for slovo in vycistena_slova:
         delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
 
-    for index, _ in enumerate(range(len(delka_slova), 0, -1), 1):
-        for item in delka_slova:
+    spravne_poradi = sorted(delka_slova)
+
+    for item, _ in enumerate(range(len(spravne_poradi), 0, -1), 1):
+        for item in spravne_poradi:
             hodnota = "*" * delka_slova[item]
             print(f"{item}{hodnota}{delka_slova[item]}")
-            delka_slova.pop(item)
+            spravne_poradi.remove(item)
             break
     print(oddelovac)
