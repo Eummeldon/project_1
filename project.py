@@ -96,77 +96,114 @@ if zvoleni_textu == "1":
     print(f"There are {pocet_upper_slov} uppercase words.")
     print(f"There are {pocet_lower_slov} lowercase words.")
     print(f"There are {pocet_num_slov} numeric strings.")
+    print(oddelovac)
+
+    delka_slova = {}
+    for slovo in vycistena_slova:
+        delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
+
+    for index, _ in enumerate(range(len(delka_slova), 0, -1), 1):
+        for item in delka_slova:
+            hodnota = "*" * delka_slova[item]
+            print(f"{item}{hodnota}{delka_slova[item]}")
+            delka_slova.pop(item)
+            break
+    print(oddelovac)
 
 elif zvoleni_textu == "2":
-        jednotliva_slova = TEXT2.split()
-        vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
+    jednotliva_slova = TEXT2.split()
+    vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
 
-        novy_list_title = []
-        for jmeno in vycistena_slova:
-            if jmeno.istitle():
-                novy_list_title.append(jmeno)
+    novy_list_title = []
+    for jmeno in vycistena_slova:
+        if jmeno.istitle():
+            novy_list_title.append(jmeno)
 
-        novy_list_uppercase = []
-        for jmeno in vycistena_slova:
-            if jmeno.isupper():
-                novy_list_uppercase.append(jmeno)
+    novy_list_uppercase = []
+    for jmeno in vycistena_slova:
+        if jmeno.isupper():
+            novy_list_uppercase.append(jmeno)
 
-        novy_list_lowercase = []
-        for jmeno in vycistena_slova:
-            if jmeno.islower():
-                novy_list_lowercase.append(jmeno)
+    novy_list_lowercase = []
+    for jmeno in vycistena_slova:
+        if jmeno.islower():
+            novy_list_lowercase.append(jmeno)
 
-        novy_list_numer = []
-        for jmeno in vycistena_slova:
-            if jmeno.isnumeric():
-                novy_list_numer.append(jmeno)
+    novy_list_numer = []
+    for jmeno in vycistena_slova:
+        if jmeno.isnumeric():
+            novy_list_numer.append(jmeno)
 
-        pocet_slov = (len(vycistena_slova))
-        pocet_title_slov = len(novy_list_title)
-        pocet_upper_slov = len(novy_list_uppercase)
-        pocet_lower_slov = len(novy_list_lowercase)
-        pocet_num_slov = len(novy_list_numer)
+    pocet_slov = (len(vycistena_slova))
+    pocet_title_slov = len(novy_list_title)
+    pocet_upper_slov = len(novy_list_uppercase)
+    pocet_lower_slov = len(novy_list_lowercase)
+    pocet_num_slov = len(novy_list_numer)
 
-        print(f"There are {pocet_slov} words in the selected text.")
-        print(f"There are {pocet_title_slov} titlecase words.")
-        print(f"There are {pocet_upper_slov} uppercase words.")
-        print(f"There are {pocet_lower_slov} lowercase words.")
-        print(f"There are {pocet_num_slov} numeric strings.")
+    print(f"There are {pocet_slov} words in the selected text.")
+    print(f"There are {pocet_title_slov} titlecase words.")
+    print(f"There are {pocet_upper_slov} uppercase words.")
+    print(f"There are {pocet_lower_slov} lowercase words.")
+    print(f"There are {pocet_num_slov} numeric strings.")
+    print(oddelovac)
+
+    delka_slova = {}
+    for slovo in vycistena_slova:
+        delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
+
+    for index, _ in enumerate(range(len(delka_slova), 0, -1), 1):
+        for item in delka_slova:
+            hodnota = "*" * delka_slova[item]
+            print(f"{item}{hodnota}{delka_slova[item]}")
+            delka_slova.pop(item)
+            break
+    print(oddelovac)
 
 elif zvoleni_textu == "3":
-        jednotliva_slova = TEXT3.split()
-        vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
+    jednotliva_slova = TEXT3.split()
+    vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
 
-        novy_list_title = []
-        for jmeno in vycistena_slova:
-            if jmeno.istitle():
-                novy_list_title.append(jmeno)
+    novy_list_title = []
+    for jmeno in vycistena_slova:
+        if jmeno.istitle():
+            novy_list_title.append(jmeno)
 
-        novy_list_uppercase = []
-        for jmeno in vycistena_slova:
-            if jmeno.isupper():
-                novy_list_uppercase.append(jmeno)
+    novy_list_uppercase = []
+    for jmeno in vycistena_slova:
+        if jmeno.isupper():
+            novy_list_uppercase.append(jmeno)
 
-        novy_list_lowercase = []
-        for jmeno in vycistena_slova:
-            if jmeno.islower():
-                novy_list_lowercase.append(jmeno)
+    novy_list_lowercase = []
+    for jmeno in vycistena_slova:
+        if jmeno.islower():
+            novy_list_lowercase.append(jmeno)
 
-        novy_list_numer = []
-        for jmeno in vycistena_slova:
-            if jmeno.isnumeric():
-                novy_list_numer.append(jmeno)
+    novy_list_numer = []
+    for jmeno in vycistena_slova:
+        if jmeno.isnumeric():
+            novy_list_numer.append(jmeno)
 
-        pocet_slov = (len(vycistena_slova))
-        pocet_title_slov = len(novy_list_title)
-        pocet_upper_slov = len(novy_list_uppercase)
-        pocet_lower_slov = len(novy_list_lowercase)
-        pocet_num_slov = len(novy_list_numer)
+    pocet_slov = (len(vycistena_slova))
+    pocet_title_slov = len(novy_list_title)
+    pocet_upper_slov = len(novy_list_uppercase)
+    pocet_lower_slov = len(novy_list_lowercase)
+    pocet_num_slov = len(novy_list_numer)
 
-        print(f"There are {pocet_slov} words in the selected text.")
-        print(f"There are {pocet_title_slov} titlecase words.")
-        print(f"There are {pocet_upper_slov} uppercase words.")
-        print(f"There are {pocet_lower_slov} lowercase words.")
-        print(f"There are {pocet_num_slov} numeric strings.")
+    print(f"There are {pocet_slov} words in the selected text.")
+    print(f"There are {pocet_title_slov} titlecase words.")
+    print(f"There are {pocet_upper_slov} uppercase words.")
+    print(f"There are {pocet_lower_slov} lowercase words.")
+    print(f"There are {pocet_num_slov} numeric strings.")
+    print(oddelovac)
 
-print(oddelovac)
+    delka_slova = {}
+    for slovo in vycistena_slova:
+        delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
+
+    for index, _ in enumerate(range(len(delka_slova), 0, -1), 1):
+        for item in delka_slova:
+            hodnota = "*" * delka_slova[item]
+            print(f"{item}{hodnota}{delka_slova[item]}")
+            delka_slova.pop(item)
+            break
+    print(oddelovac)
