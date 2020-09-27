@@ -10,7 +10,7 @@ password3 = "password123"
 user4 = "liz"
 password4 = "pass123"
 
-oddelovac = 50 * "-"
+oddelovac = 65 * "-"
 
 TEXT1 = '''
 Situated about 10 miles west of Kemmerer, 
@@ -112,6 +112,12 @@ if zvoleni_textu == "1":
             break
     print(oddelovac)
 
+    from decimal import Decimal
+
+    vysledek = sum(Decimal(i) for i in novy_list_numer)
+    print(f"If we summed all the numbers in this text we would get: {vysledek}")
+    print(oddelovac)
+
 elif zvoleni_textu == "2":
     jednotliva_slova = TEXT2.split()
     vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
@@ -163,6 +169,12 @@ elif zvoleni_textu == "2":
             break
     print(oddelovac)
 
+    from decimal import Decimal
+
+    vysledek = sum(Decimal(i) for i in novy_list_numer)
+    print(f"If we summed all the numbers in this text we would get: {vysledek}")
+    print(oddelovac)
+
 elif zvoleni_textu == "3":
     jednotliva_slova = TEXT3.split()
     vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
@@ -212,4 +224,10 @@ elif zvoleni_textu == "3":
             print(f"{item}{hodnota}{delka_slova[item]}")
             spravne_poradi.remove(item)
             break
+    print(oddelovac)
+
+    from decimal import Decimal
+
+    vysledek = sum(Decimal(i) for i in novy_list_numer)
+    print(f"If we summed all the numbers in this text we would get: {vysledek}")
     print(oddelovac)
