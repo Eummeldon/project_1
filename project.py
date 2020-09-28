@@ -1,3 +1,4 @@
+
 user1 = "bob"
 password1 = "123"
 
@@ -49,7 +50,7 @@ while True:
     uzivatel_username = input("USERNAME: ")
     uzivatel_pw = input("PASSWORD: ")
     print(oddelovac)
-
+# Oveření zda je uživatel registrován
     if uzivatel_username == user1 and uzivatel_pw == password1 or uzivatel_username == user2 and uzivatel_pw == password2 or uzivatel_username == user3 and uzivatel_pw == password3 or uzivatel_username == user4 and uzivatel_pw == password4:
         break
     else:
@@ -58,176 +59,93 @@ while True:
 
 
 
-zvoleni_textu = input("We have 3 texts to be analyzed.\nEnter a number btw. 1 and 3 to select: ")
+
+while True:
+
+    zvoleni_textu = input("We have 3 texts to be analyzed.\nEnter a number btw. 1 and 3 to select: ")
+    print(oddelovac)
+# zvolení textu k analyzování
+    if zvoleni_textu == "1":
+        jednotliva_slova = TEXT1.split()
+        vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
+        break
+
+    elif zvoleni_textu == "2":
+        jednotliva_slova = TEXT2.split()
+        vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
+        break
+
+    elif zvoleni_textu == "3":
+        jednotliva_slova = TEXT3.split()
+        vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
+        break
+    else:
+        print("Error, wrong number!")
+        print(oddelovac)
+        continue
+
+
+# Zjištění kolik slov v textu začíná velkým písmenem
+novy_list_title = []
+for jmeno in vycistena_slova:
+    if jmeno.istitle():
+        novy_list_title.append(jmeno)
+
+# Zjištění kolik slov v textu je tvořeno pouze velkými písmeny
+novy_list_uppercase = []
+for jmeno in vycistena_slova:
+    if jmeno.isupper():
+        novy_list_uppercase.append(jmeno)
+
+# Zjištění kolik slov je tvořeno pouze malými písmeny
+novy_list_lowercase = []
+for jmeno in vycistena_slova:
+    if jmeno.islower():
+        novy_list_lowercase.append(jmeno)
+
+# Zjištění kolik je v textu číselných řetezců
+novy_list_numer = []
+for jmeno in vycistena_slova:
+    if jmeno.isnumeric():
+        novy_list_numer.append(jmeno)
+
+# Definování jednotlivých proměných na základě udáju zjištěných z textu
+pocet_slov = (len(vycistena_slova))
+pocet_title_slov = len(novy_list_title)
+pocet_upper_slov = len(novy_list_uppercase)
+pocet_lower_slov = len(novy_list_lowercase)
+pocet_num_slov = len(novy_list_numer)
+
+# Vytištění informací z textu
+print(f"There are {pocet_slov} words in the selected text.")
+print(f"There are {pocet_title_slov} titlecase words.")
+print(f"There are {pocet_upper_slov} uppercase words.")
+print(f"There are {pocet_lower_slov} lowercase words.")
+print(f"There are {pocet_num_slov} numeric strings.")
 print(oddelovac)
 
-if zvoleni_textu == "1":
-    jednotliva_slova = TEXT1.split()
-    vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
+# Zjištění délky slov plus jejich výskyt
+delka_slova = {}
+for slovo in vycistena_slova:
+    delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
 
-    novy_list_title = []
-    for jmeno in vycistena_slova:
-        if jmeno.istitle():
-            novy_list_title.append(jmeno)
+# Seřazení od nejkratšího slova po nejdelší
+spravne_poradi = sorted(delka_slova)
 
-    novy_list_uppercase = []
-    for jmeno in vycistena_slova:
-        if jmeno.isupper():
-            novy_list_uppercase.append(jmeno)
+# Jednoduchý graf výskytu délky slov
+for item, _ in enumerate(range(len(spravne_poradi), 0, -1), 1):
+    for item in spravne_poradi:
+        hodnota = "*" * delka_slova[item]
+        print(f"{item}{hodnota}{delka_slova[item]}")
+        spravne_poradi.remove(item)
+        break
+print(oddelovac)
 
-    novy_list_lowercase = []
-    for jmeno in vycistena_slova:
-        if jmeno.islower():
-            novy_list_lowercase.append(jmeno)
+# Sečtení číselných hodnot v textu
+from decimal import Decimal
 
-    novy_list_numer = []
-    for jmeno in vycistena_slova:
-        if jmeno.isnumeric():
-            novy_list_numer.append(jmeno)
+vysledek = sum(Decimal(i) for i in novy_list_numer)
+print(f"If we summed all the numbers in this text we would get: {vysledek}")
+print(oddelovac)
 
-    pocet_slov = (len(vycistena_slova))
-    pocet_title_slov = len(novy_list_title)
-    pocet_upper_slov = len(novy_list_uppercase)
-    pocet_lower_slov = len(novy_list_lowercase)
-    pocet_num_slov = len(novy_list_numer)
 
-    print(f"There are {pocet_slov} words in the selected text.")
-    print(f"There are {pocet_title_slov} titlecase words.")
-    print(f"There are {pocet_upper_slov} uppercase words.")
-    print(f"There are {pocet_lower_slov} lowercase words.")
-    print(f"There are {pocet_num_slov} numeric strings.")
-    print(oddelovac)
-
-    delka_slova = {}
-    for slovo in vycistena_slova:
-        delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
-
-    spravne_poradi = sorted(delka_slova)
-
-    for item, _ in enumerate(range(len(spravne_poradi), 0, -1), 1):
-        for item in spravne_poradi:
-            hodnota = "*" * delka_slova[item]
-            print(f"{item}{hodnota}{delka_slova[item]}")
-            spravne_poradi.remove(item)
-            break
-    print(oddelovac)
-
-    from decimal import Decimal
-
-    vysledek = sum(Decimal(i) for i in novy_list_numer)
-    print(f"If we summed all the numbers in this text we would get: {vysledek}")
-    print(oddelovac)
-
-elif zvoleni_textu == "2":
-    jednotliva_slova = TEXT2.split()
-    vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
-
-    novy_list_title = []
-    for jmeno in vycistena_slova:
-        if jmeno.istitle():
-            novy_list_title.append(jmeno)
-
-    novy_list_uppercase = []
-    for jmeno in vycistena_slova:
-        if jmeno.isupper():
-            novy_list_uppercase.append(jmeno)
-
-    novy_list_lowercase = []
-    for jmeno in vycistena_slova:
-        if jmeno.islower():
-            novy_list_lowercase.append(jmeno)
-
-    novy_list_numer = []
-    for jmeno in vycistena_slova:
-        if jmeno.isnumeric():
-            novy_list_numer.append(jmeno)
-
-    pocet_slov = (len(vycistena_slova))
-    pocet_title_slov = len(novy_list_title)
-    pocet_upper_slov = len(novy_list_uppercase)
-    pocet_lower_slov = len(novy_list_lowercase)
-    pocet_num_slov = len(novy_list_numer)
-
-    print(f"There are {pocet_slov} words in the selected text.")
-    print(f"There are {pocet_title_slov} titlecase words.")
-    print(f"There are {pocet_upper_slov} uppercase words.")
-    print(f"There are {pocet_lower_slov} lowercase words.")
-    print(f"There are {pocet_num_slov} numeric strings.")
-    print(oddelovac)
-
-    delka_slova = {}
-    for slovo in vycistena_slova:
-        delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
-
-    spravne_poradi = sorted(delka_slova)
-
-    for item, _ in enumerate(range(len(spravne_poradi), 0, -1), 1):
-        for item in spravne_poradi:
-            hodnota = "*" * delka_slova[item]
-            print(f"{item}{hodnota}{delka_slova[item]}")
-            spravne_poradi.remove(item)
-            break
-    print(oddelovac)
-
-    from decimal import Decimal
-
-    vysledek = sum(Decimal(i) for i in novy_list_numer)
-    print(f"If we summed all the numbers in this text we would get: {vysledek}")
-    print(oddelovac)
-
-elif zvoleni_textu == "3":
-    jednotliva_slova = TEXT3.split()
-    vycistena_slova = [slovo.strip("., ") for slovo in jednotliva_slova]
-
-    novy_list_title = []
-    for jmeno in vycistena_slova:
-        if jmeno.istitle():
-            novy_list_title.append(jmeno)
-
-    novy_list_uppercase = []
-    for jmeno in vycistena_slova:
-        if jmeno.isupper():
-            novy_list_uppercase.append(jmeno)
-
-    novy_list_lowercase = []
-    for jmeno in vycistena_slova:
-        if jmeno.islower():
-            novy_list_lowercase.append(jmeno)
-
-    novy_list_numer = []
-    for jmeno in vycistena_slova:
-        if jmeno.isnumeric():
-            novy_list_numer.append(jmeno)
-
-    pocet_slov = (len(vycistena_slova))
-    pocet_title_slov = len(novy_list_title)
-    pocet_upper_slov = len(novy_list_uppercase)
-    pocet_lower_slov = len(novy_list_lowercase)
-    pocet_num_slov = len(novy_list_numer)
-
-    print(f"There are {pocet_slov} words in the selected text.")
-    print(f"There are {pocet_title_slov} titlecase words.")
-    print(f"There are {pocet_upper_slov} uppercase words.")
-    print(f"There are {pocet_lower_slov} lowercase words.")
-    print(f"There are {pocet_num_slov} numeric strings.")
-    print(oddelovac)
-
-    delka_slova = {}
-    for slovo in vycistena_slova:
-        delka_slova[len(slovo)] = delka_slova.get(len(slovo), 0) + 1
-
-    spravne_poradi = sorted(delka_slova)
-
-    for item, _ in enumerate(range(len(spravne_poradi), 0, -1), 1):
-        for item in spravne_poradi:
-            hodnota = "*" * delka_slova[item]
-            print(f"{item}{hodnota}{delka_slova[item]}")
-            spravne_poradi.remove(item)
-            break
-    print(oddelovac)
-
-    from decimal import Decimal
-
-    vysledek = sum(Decimal(i) for i in novy_list_numer)
-    print(f"If we summed all the numbers in this text we would get: {vysledek}")
-    print(oddelovac)
